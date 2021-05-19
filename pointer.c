@@ -3,17 +3,15 @@
 #include <ctype.h>
 #include "sort.c"
 
-//code test
-
-int binary_search(int search, int array, int array_length)
+int binary_search(int search, int *array, int array_length)
 {
     int left = 0, right = array_length - 1, mid = (left + right) / 2;
     for(;left <= right; mid = (left + right) / 2)
-        if (search == array[mid])
+        if (search == *(array + mid))
             return mid;
-        else if (search < array[mid])
+        else if (search < *(array + mid))
             right = mid - 1;
-        else if (search > array[mid])
+        else if (search > *(array + mid))
             left = mid + 1;
     return -1;
 }
@@ -43,9 +41,9 @@ void main()
     for (i = 0; i < size; i++)
         printf("(x + %d): %d\n", i, *(x + i));
     if (found != -1)
-        printf("%d is located at (x + %d)", value, found);
+        printf("\n%d is located at (x + %d)", value, found);
     else
-        printf("%d is not found", value);
+        printf("\n%d is not found", value);
 
     printf("\n\nDo you want to enter key again (y/n)? ");
     scanf(" %c", &try_again);
