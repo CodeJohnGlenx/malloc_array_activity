@@ -3,7 +3,9 @@
 #include <ctype.h>
 #include "sort.c"
 
-int binary_search(int search, int array[], int array_length)
+//code test
+
+int binary_search(int search, int array, int array_length)
 {
     int left = 0, right = array_length - 1, mid = (left + right) / 2;
     for(;left <= right; mid = (left + right) / 2)
